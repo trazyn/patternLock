@@ -91,9 +91,9 @@
             var laMove = getLengthAngle(iObj.lineX1, posObj.x, iObj.lineY1, posObj.y);
             iObj.line.css({
                 'width': (laMove.length + 10) + 'px',
-                'transform': 'rotate(' + laMove.angle + 'deg)',
+                'transform': 'rotate(' + laMove.angle + 'deg) scaleY(.5)',
                 //for zepto
-                '-webkit-transform': 'rotate(' + laMove.angle + 'deg)',
+                '-webkit-transform': 'rotate(' + laMove.angle + 'deg) scaleY(.5)',
             });
         }
 
@@ -148,9 +148,9 @@
                     var lA = getLengthAngle(iObj.lineX1, newX, iObj.lineY1, newY);
                     iObj.line.css({
                         'width': (lA.length + 10) + 'px',
-                        'transform': 'rotate(' + lA.angle + 'deg)',
+                        'transform': 'rotate(' + lA.angle + 'deg) scaleY(.5)',
                         //for zepto
-                        '-webkit-transform': 'rotate(' + lA.angle + 'deg)'
+                        '-webkit-transform': 'rotate(' + lA.angle + 'deg) scaleY(.5)'
                     });
 
                     if (!lineOnMove) iObj.line.show();
@@ -256,6 +256,7 @@
 
         //handeling callback
         iObj.option.onDraw = option.onDraw || nullFunc;
+        iObj.option.onReset = option.onReset || nullFunc;
 
         //adding a mapper function
         var mapper = option.mapper;
@@ -383,3 +384,4 @@
 
     window.PatternLock = PatternLock;
 }(window.jQuery || window.Zepto, window, document));
+
